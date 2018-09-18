@@ -6,7 +6,8 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_object: params[:book_object], user: params[:user])
+    byebug
+    @book = Book.new(book_object: params[:book_object])
     if @book.save
       render json: @book
     else
@@ -24,7 +25,7 @@ class Api::V1::BooksController < ApplicationController
   private
 
   def book_params
-    params.permit(:book_object, :user)
+    params.permit(:book_object)
   end
 
 end

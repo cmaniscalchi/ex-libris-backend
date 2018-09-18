@@ -10,24 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_17_183750) do
+ActiveRecord::Schema.define(version: 2018_09_18_161258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
-    t.bigint "user_id"
-    t.jsonb "book_object"
+    t.string "title"
+    t.integer "goodreads_book_id"
+    t.string "author"
+    t.integer "goodreads_author_id"
+    t.integer "publication_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_books_on_user_id"
+    t.string "image_url"
+  end
+
+  create_table "bookshelf_books", force: :cascade do |t|
+    t.bigint "bookshelf_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_bookshelf_books_on_book_id"
+    t.index ["bookshelf_id"], name: "index_bookshelf_books_on_bookshelf_id"
+  end
+
+  create_table "bookshelves", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookshelves_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
   end
 
-  add_foreign_key "books", "users"
+  add_foreign_key "bookshelf_books", "books"
+  add_foreign_key "bookshelf_books", "bookshelves"
+  add_foreign_key "bookshelves", "users"
 end
