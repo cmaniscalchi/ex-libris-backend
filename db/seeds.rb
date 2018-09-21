@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 users = [
-  { name: "Claudia", email: "claudia@somedomain.com" },
-  { name: "Jared", email: "jared@somedomain.com" },
-  { name: "Luke", email: "luke@somedomain.com" },
-  { name: "Sean", email: "sean@somedomain.com" },
-  { name: "Tony", email: "tony@somedomain.com" }
+  { name: "Claudia", email: "claudia@somedomain.com", password: "pw1" },
+  { name: "Jared", email: "jared@somedomain.com", password: "pw2" },
+  { name: "Luke", email: "luke@somedomain.com", password: "pw3" },
+  { name: "Sean", email: "sean@somedomain.com", password: "pw4" },
+  { name: "Tony", email: "tony@somedomain.com", password: "pw5" }
 ]
 
 users.each {|user| User.create(user)}
@@ -73,6 +73,6 @@ books = [
 
 books.each {|book| Book.create(book)}
 
-50.times do
+25.times do
   BookshelfBook.create({bookshelf_id: Bookshelf.all.sample.id, book_id: Book.all.sample.id})
 end
