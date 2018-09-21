@@ -6,7 +6,7 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     @book = Book.new(book_params)
     if @book.save
       render json: @book

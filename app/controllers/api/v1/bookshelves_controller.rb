@@ -5,5 +5,4 @@ class Api::V1::BookshelvesController < ApplicationController
     render json: @bookshelves
   end
 
-
 end
