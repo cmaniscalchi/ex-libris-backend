@@ -1,6 +1,7 @@
 class Api::V1::BooksController < ApplicationController
 
   def index
+    byebug
     @books = Book.all
     render json: @books
   end
