@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       post '/book_search', to: 'books#book_search'
       resources :users, only: :create
       resources :bookshelves, only: [:index, :create]
-      resources :bookshelf_books, only: [:index, :create]
       resources :books, only: [:index, :create]
     end
   end

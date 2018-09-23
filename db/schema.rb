@@ -21,18 +21,11 @@ ActiveRecord::Schema.define(version: 2018_09_21_004851) do
     t.string "author"
     t.integer "goodreads_author_id"
     t.integer "publication_year"
+    t.bigint "bookshelf_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
-  end
-
-  create_table "bookshelf_books", force: :cascade do |t|
-    t.bigint "bookshelf_id"
-    t.bigint "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_bookshelf_books_on_book_id"
-    t.index ["bookshelf_id"], name: "index_bookshelf_books_on_bookshelf_id"
+    t.index ["bookshelf_id"], name: "index_books_on_bookshelf_id"
   end
 
   create_table "bookshelves", force: :cascade do |t|
@@ -51,7 +44,6 @@ ActiveRecord::Schema.define(version: 2018_09_21_004851) do
     t.string "password_digest"
   end
 
-  add_foreign_key "bookshelf_books", "books"
-  add_foreign_key "bookshelf_books", "bookshelves"
+  add_foreign_key "books", "bookshelves"
   add_foreign_key "bookshelves", "users"
 end

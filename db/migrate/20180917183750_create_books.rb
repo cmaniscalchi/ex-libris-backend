@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :author
       t.integer :goodreads_author_id
       t.integer :publication_year
+      t.references :bookshelf, foreign_key: true
 
       t.timestamps
     end
