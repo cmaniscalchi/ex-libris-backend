@@ -1,13 +1,13 @@
 class Api::V1::BooksController < ApplicationController
 
   def index
-    byebug
     @books = Book.all
     render json: @books
   end
 
   def create
     @book = Book.new(book_params)
+    byebug
     if @book.save
       render json: @book
     else
@@ -25,7 +25,7 @@ class Api::V1::BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :goodreads_book_id, :author, :goodreads_author_id, :publication_year, :image_url)
+    params.require(:book).permit(:title, :goodreads_book_id, :author, :goodreads_author_id, :publication_year, :image_url, :bookshelf_id)
   end
 
 end
