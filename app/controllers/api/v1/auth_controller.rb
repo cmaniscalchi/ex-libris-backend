@@ -1,5 +1,5 @@
 class Api::V1::AuthController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :logout]
 
   def create
     @user = User.find_by(name: user_login_params[:name])
@@ -8,6 +8,14 @@ class Api::V1::AuthController < ApplicationController
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :accepted
     else
       render json: { message: 'Invalid name or password' }, status: :unauthorized
+    end
+  end
+
+  def logout
+    @user = User.find_by(name: user_login_params[:name])
+    if @user[:current_user]
+      @token = ""
+      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :accepted
     end
   end
 
