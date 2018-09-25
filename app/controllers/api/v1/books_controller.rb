@@ -12,6 +12,7 @@ class Api::V1::BooksController < ApplicationController
     else
       render json: {errors: "Book did not save"}
     end
+    redirect_to api_v1_bookshelf_path
   end
 
   def book_search
@@ -19,6 +20,10 @@ class Api::V1::BooksController < ApplicationController
     request = RestClient.get(url)
     response = Hash.from_xml(request)
     render json: response
+  end
+
+  def destroy
+    Book.find_by(id: params[:id]).destroy
   end
 
   private
