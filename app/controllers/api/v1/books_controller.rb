@@ -12,7 +12,6 @@ class Api::V1::BooksController < ApplicationController
     else
       render json: {errors: "Book did not save"}
     end
-    redirect_to api_v1_bookshelf_path
   end
 
   def book_search
