@@ -14,6 +14,13 @@ class Api::V1::BooksController < ApplicationController
     end
   end
 
+  def book_details
+    url = "https://www.goodreads.com/book/show/" + params["id"].to_s + ".xml?key=" + ENV["GOODREADS_KEY"]
+    request = RestClient.get(url)
+    response = Hash.from_xml(request)
+    render json: response
+  end
+
   def book_search
     url = "https://www.goodreads.com/search/index.xml?key=" + ENV["GOODREADS_KEY"] + "&q=" + params["input"]
     request = RestClient.get(url)
