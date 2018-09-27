@@ -1,6 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
+
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
@@ -41,7 +41,6 @@ books = [
   { author: "Alasdair Gray", title: "Poor Things", goodreads_book_id: 72355, publication_year: 1992, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1489614116l/72355.jpg" },
   { author: "Emily Brontë", title: "Wuthering Heights", goodreads_book_id: 87798, publication_year: 1847, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1212617108l/87798.jpg" },
   { author: "Kurt Vonnegut", title: "Cat's Cradle", goodreads_book_id: 135479, publication_year: 1963, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1288718321l/386411.jpg" },
-  { author: "Larry McMurtry", title: "Lonesome Dove", goodreads_book_id: 256008, publication_year: 1985, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1378573063l/256008.jpg" },
   { author: "Cormac McCarthy", title: "Blood Meridian, or the Evening Redness in the West", goodreads_book_id: 394535, publication_year: 1985, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1537969427l/8889448.jpg" },
   { author: "Tennessee Williams", title: "Cat on a Hot Tin Roof", goodreads_book_id: 430719, publication_year: 1955, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1309282800l/430719.jpg" },
   { author: "Kate Chopin", title: "The Awakening", goodreads_book_id: 35650644, publication_year: 1899, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1499746279l/35650644.jpg" },
@@ -51,14 +50,12 @@ books = [
   { author: "Charlotte Perkins Gilman", title: "The Yellow Wallpaper", goodreads_book_id: 286957, publication_year: 1892, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1351778524l/286957.jpg" },
   { author: "Ann-Marie MacDonald", title: "Fall on Your Knees", goodreads_book_id: 1219896, publication_year: 1996, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1484169440l/1219896.jpg" },
   { author: "Tove Jansson", title: "The Summer Book", goodreads_book_id: 2263969, publication_year: 1972, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1320565854l/2263969.jpg" },
-  { author: "George Orwell", title: "1984", goodreads_book_id: 6606279, publication_year: 1949, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1327877570l/6606279.jpg" },
-  { author: "Patrick deWitt", title: "The Sisters Brothers", goodreads_book_id: 9850443, publication_year: 2011, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1291999900l/9850443.jpg" },
-  { author: "Simon Van Booy", title: "Everything Beautiful Began After", goodreads_book_id: 10156330, publication_year: 2011, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1302013204l/10156330.jpg" },
+  { author: "George Orwell", title: "1984", goodreads_book_id: 36253959, publication_year: 1949, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1505633646l/36253959.jpg" },
+  { author: "Patrick deWitt", title: "Ablutions", goodreads_book_id: 5291478, publication_year: 2009, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1442205698l/5291478.jpg" },
   { author: "Ray Bradbury", title: "The Martian Chronicles", goodreads_book_id: 10480387, publication_year: 1950, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1351085489l/10480387.jpg" },
   { author: "Helen Oyeyemi", title: "Mr. Fox", goodreads_book_id: 11093751, publication_year: 2011, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1362148611l/11093751.jpg" },
   { author: "Eowyn Ivey", title: "The Snow Child", goodreads_book_id: 11250053, publication_year: 2012, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1327098624l/11250053.jpg" },
-  { author: "Thomas Berger", title: "Little Big Man", goodreads_book_id: 11555328, publication_year: 1964, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1328341091l/11506279.jpg" },
-  { author: "Ted Sanders", title: "No Animals We Could Name", goodreads_book_id: 13034915, publication_year: 2012, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1344321533l/13034915.jpg" },
+  { author: "Jerzy Kosiński", title: "Being There", goodreads_book_id: 6620932, publication_year: 1970, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1344321533l/13034915.jpg" },
   { author: "George Saunders", title: "Lincoln in the Bardo", goodreads_book_id: 29906980, publication_year: 2017, bookshelf_id: Bookshelf.all.sample.id, image_url: "https://images.gr-assets.com/books/1517846156l/33916515.jpg" }
 ]
 
