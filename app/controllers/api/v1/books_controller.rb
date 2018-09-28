@@ -28,6 +28,13 @@ class Api::V1::BooksController < ApplicationController
     render json: response
   end
 
+  def author_book_search
+    url = "https://www.goodreads.com/author/list/" + params["authorId"].to_s + ".xml?key=" + ENV["GOODREADS_KEY"]
+    request = RestClient.get(url)
+    response = Hash.from_xml(request)
+    render json: response
+  end
+
   def destroy
     Book.find_by(id: params[:id]).destroy
   end

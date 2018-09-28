@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post '/logout', to: 'auth#logout'
       get '/bookshelf', to: 'users#bookshelf'
       get '/search', to: 'users#search'
+      post '/author_book_search', to: 'books#author_book_search'
       post '/book_search', to: 'books#book_search'
       post '/book_details', to: 'books#book_details'
       resources :users, only: :create
