@@ -35,6 +35,12 @@ class Api::V1::BooksController < ApplicationController
     render json: response
   end
 
+  def book_cover_search
+    url = "https://www.googleapis.com/books/v1/volumes?q=" + params["title"] + params["author"] + "&maxResults=30&orderBy=relevance&printType=books&key=" + ENV["GOOGLE_BOOKS_KEY"]
+    request = RestClient.get(url)
+    render json: request
+  end
+
   def destroy
     Book.find_by(id: params[:id]).destroy
   end
