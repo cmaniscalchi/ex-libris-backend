@@ -14,15 +14,15 @@ class Api::V1::BooksController < ApplicationController
     end
   end
 
-  def book_details
-    url = "https://www.goodreads.com/book/show/" + params["id"].to_s + ".xml?key=" + ENV["GOODREADS_KEY"]
+  def book_search
+    url = "https://www.goodreads.com/search/index.xml?key=" + ENV["GOODREADS_KEY"] + "&q=" + params["input"]
     request = RestClient.get(url)
     response = Hash.from_xml(request)
     render json: response
   end
 
-  def book_search
-    url = "https://www.goodreads.com/search/index.xml?key=" + ENV["GOODREADS_KEY"] + "&q=" + params["input"]
+  def book_details
+    url = "https://www.goodreads.com/book/show/" + params["id"].to_s + ".xml?key=" + ENV["GOODREADS_KEY"]
     request = RestClient.get(url)
     response = Hash.from_xml(request)
     render json: response
@@ -39,6 +39,15 @@ class Api::V1::BooksController < ApplicationController
     url = "https://www.googleapis.com/books/v1/volumes?q=" + params["title"] + params["author"] + "&maxResults=30&orderBy=relevance&printType=books&key=" + ENV["GOOGLE_BOOKS_KEY"]
     request = RestClient.get(url)
     render json: request
+  end
+
+  def update
+    @book = Book.find_by(id: params[:id])
+    if @book.update_attributes(image_url: params[:image_url])
+      render json: @book
+    else
+      render json: {errors: "Book did not save"}
+    end
   end
 
   def destroy
