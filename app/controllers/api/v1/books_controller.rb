@@ -36,7 +36,11 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def book_cover_search
-    url = "https://www.googleapis.com/books/v1/volumes?q=" + params["title"] + params["author"] + "&maxResults=30&orderBy=relevance&printType=books&key=" + ENV["GOOGLE_BOOKS_KEY"]
+    # require "addressable/uri"
+    url = "https://www.googleapis.com/books/v1/volumes?q=" + params["title"] + " " + params["author"] + "&maxResults=40&orderBy=relevance&printType=books&key=" + ENV["GOOGLE_BOOKS_KEY"]
+    # uri = Addressable::URI.parse(url)
+    # uri.normalize
+    # byebug
     request = RestClient.get(url)
     render json: request
   end
