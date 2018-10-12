@@ -38,6 +38,8 @@ class Api::V1::BooksController < ApplicationController
     render json: response
   end
 
+
+  # using google books api:
   # def book_cover_search
   #   url = "https://www.googleapis.com/books/v1/volumes?q=" + params["title"] + "+" + params["author"] + "&maxResults=40&orderBy=relevance&printType=books&key=" + ENV["GOOGLE_BOOKS_KEY"]
   #   uri = Addressable::URI.parse(url)
@@ -45,9 +47,10 @@ class Api::V1::BooksController < ApplicationController
   #   render json: request
   # end
 
+  # using google custom search api:
   def book_cover_search
     # byebug
-    url = "https://www.googleapis.com/customsearch/v1?q=cover+art+" + "&cx=" + ENV["GOOGLE_SEARCH_ID"] +  "&exactTerms=" + params["title"] + "+by+" + params["author"] + "&filter=1&imgSize=large&imgType=photo&safe=active&webSearchResultSetSize=20&key=" + ENV["GOOGLE_SEARCH_KEY"]
+    url = "https://www.googleapis.com/customsearch/v1?q=cover+art+" + "&cx=" + ENV["GOOGLE_SEARCH_ID"] +  "&exactTerms=" + params["title"] + "+by+" + params["author"] + "&filter=1&imgSize=large&imgType=photo&safe=active&key=" + ENV["GOOGLE_SEARCH_KEY"]
     uri = Addressable::URI.parse(url)
     request = RestClient.get(uri.normalize.to_s)
     render json: request
