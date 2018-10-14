@@ -1,6 +1,8 @@
 class Api::V1::BooksController < ApplicationController
 
   require 'uri'
+  require 'net/https'
+  require 'json'
   require 'addressable/uri'
 
   def index
@@ -38,22 +40,14 @@ class Api::V1::BooksController < ApplicationController
     render json: response
   end
 
-
-  # using google books api:
-  # def book_cover_search
-  #   url = "https://www.googleapis.com/books/v1/volumes?q=" + params["title"] + "+" + params["author"] + "&maxResults=40&orderBy=relevance&printType=books&key=" + ENV["GOOGLE_BOOKS_KEY"]
-  #   uri = Addressable::URI.parse(url)
-  #   request = RestClient.get(uri.normalize.to_s)
-  #   render json: request
-  # end
-
-  # using google custom search api:
   def book_cover_search
-    # byebug
-    url = "https://www.googleapis.com/customsearch/v1?q=cover+art+" + "&cx=" + ENV["GOOGLE_SEARCH_ID"] +  "&exactTerms=" + params["title"] + "+by+" + params["author"] + "&filter=1&imgSize=large&imgType=photo&safe=active&key=" + ENV["GOOGLE_SEARCH_KEY"]
-    uri = Addressable::URI.parse(url)
-    request = RestClient.get(uri.normalize.to_s)
-    render json: request
+    uri = URI("https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=book+cover+" + URI.escape(params["title"] + "+" + params["author"]) + "&aspect=tall&minHeight=500&maxHeight=2000")
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = ENV["BING_IMAGE_SEARCH_KEY"]
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+      http.request(request)
+    end
+    render json: response.body
   end
 
   def update

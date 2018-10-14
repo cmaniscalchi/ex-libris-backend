@@ -8,10 +8,10 @@ users = [
 users.each {|user| User.create(user)}
 
 bookshelves = [
-  { name: "Claudia's Books", user_id: User.first.id },
-  { name: "Jared's Books", user_id: User.second.id },
-  { name: "Luke's Books", user_id: User.third.id },
-  { name: "Tony's Books", user_id: User.fourth.id }
+  { name: "My Bookshelf", user_id: User.first.id },
+  { name: "My Bookshelf", user_id: User.second.id },
+  { name: "My Bookshelf", user_id: User.third.id },
+  { name: "My Bookshelf", user_id: User.fourth.id }
 ]
 
 bookshelves.each {|bookshelf| Bookshelf.create(bookshelf)}
@@ -148,17 +148,17 @@ books = [
   { title: "To the Lighthouse",
     author: "Virginia Woolf",
     publication_year: 1927,
-    image_url: "http://books.google.com/books/content?id=b9mJvdxiYZUC&printsec=frontcover&img=1&zoom=0&source=gbs_api",
+    image_url: "http://prodimage.images-bn.com/pimages/9780156907392_p0_v5_s1200x630.jpg",
     goodreads_book_id: 59716,
     goodreads_author_id: 6765,
     bookshelf_id: Bookshelf.all.sample.id
   },
-  { "title": "The Metamorphosis",
-    "author": "Franz Kafka",
-    "publication_year": 1915,
-    "image_url": "https://images.gr-assets.com/books/1538659699l/39337948.jpg",
-    "goodreads_book_id": 485894,
-    "goodreads_author_id": 5223,
+  { title: "The Metamorphosis",
+    author: "Franz Kafka",
+    publication_year: 1915,
+    image_url: "https://images.gr-assets.com/books/1538659699l/39337948.jpg",
+    goodreads_book_id: 485894,
+    goodreads_author_id: 5223,
     bookshelf_id: Bookshelf.all.sample.id,
   },
   { author: "Jerzy Kosinski",
