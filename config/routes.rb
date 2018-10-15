@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       post '/book_details', to: 'books#book_details'
       post '/book_search', to: 'books#book_search'
 
-      resources :bookshelves, only: [:index, :create]
+      resources :bookshelves, only: [:index, :create, :update, :destroy]
 
       resources :users, only: :create
       get '/bookshelf', to: 'users#bookshelf'

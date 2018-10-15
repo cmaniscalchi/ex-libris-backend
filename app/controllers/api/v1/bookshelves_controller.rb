@@ -14,6 +14,15 @@ class Api::V1::BookshelvesController < ApplicationController
     end
   end
 
+  def update
+    @bookshelf = Bookshelf.find_by(id: params[:id])
+    if @bookshelf.update_attributes(name: params[:name])
+      render json: @bookshelf
+    else
+      render json: {errors: "Unable to rename bookshelf"}
+    end
+  end
+
   private
 
   def bookshelf_params
