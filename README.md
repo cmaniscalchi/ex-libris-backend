@@ -7,6 +7,6 @@ Ex Libris is a virtual shelf for curating, organizing, and displaying your favor
 Using a Ruby on Rails backend and a [React frontend](https://github.com/cmaniscalchi/ex-libris-frontend), users are able to search and explore books by author, title, or similar works, save books to specified bookshelves, and select the specific cover art they would like to display.
 
 
-Minimalist, intuitive, and streamlined by design, Ex Libris features extensive CRUD functionality, allowing the books themselves to shine. Celebrate your love of reading and enjoy exploring literature in a new, visual way.
+Minimalist, intuitive, and streamlined by design, Ex Libris features extensive CRUD functionality, allowing the books themselves to shine, so you can celebrate your love of reading and enjoy exploring literature in a new, visual way.
 
 The frontend repository for Ex Libris can be [found here](https://github.com/cmaniscalchi/ex-libris-frontend).
