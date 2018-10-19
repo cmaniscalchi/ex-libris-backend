@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
       resources :bookshelves, only: [:index, :create, :update, :destroy]
 
-      resources :users, only: :create
+      resources :users, only: [:index, :create]
       get '/bookshelf', to: 'users#bookshelf'
       get '/search', to: 'users#search'
     end

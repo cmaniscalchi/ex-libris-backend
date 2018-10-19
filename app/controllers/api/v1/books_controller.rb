@@ -52,8 +52,14 @@ class Api::V1::BooksController < ApplicationController
 
   def update
     @book = Book.find_by(id: params[:id])
-    if @book.update_attributes(image_url: params[:image_url])
-      render json: @book
+    if params[:image_url] != nil
+      if @book.update_attributes(image_url: params[:image_url])
+        render json: @book
+      end
+    elsif params[:bookshelf_id] != nil
+      if @book.update_attributes(bookshelf_id: params[:bookshelf_id])
+        render json: @book
+      end
     else
       render json: {errors: "Book did not save"}
     end
