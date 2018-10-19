@@ -30,7 +30,6 @@ class Api::V1::BookshelvesController < ApplicationController
   private
 
   def bookshelf_params
-    byebug
     params.require(:bookshelf).permit(:name, :user_id)
   end
 
