@@ -23,9 +23,14 @@ class Api::V1::BookshelvesController < ApplicationController
     end
   end
 
+  def destroy
+    Bookshelf.find_by(id: params[:id]).destroy
+  end
+
   private
 
   def bookshelf_params
+    byebug
     params.require(:bookshelf).permit(:name, :user_id)
   end
 
